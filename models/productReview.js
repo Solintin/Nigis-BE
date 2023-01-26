@@ -27,7 +27,7 @@ const productReviewSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-idGenerator("product_review", productReviewSchema);
+// idGenerator("product_review", productReviewSchema);
 
 productReviewSchema.statics.calcalations = async function (productId) {
   const result = await this.aggregate([

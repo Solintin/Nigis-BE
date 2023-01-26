@@ -47,7 +47,7 @@ const productSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-idGenerator("product", productSchema);
+// idGenerator("product", productSchema);
 
 productSchema.pre("remove", async function () {
   await this.model("productReview").deleteMany({ product: this._id });

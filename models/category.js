@@ -23,7 +23,7 @@ const categorySchema = mongoose.Schema(
 );
 
 
-idGenerator('category', categorySchema)
+// idGenerator('category', categorySchema)
 
 const category = mongoose.model("category", categorySchema);
 

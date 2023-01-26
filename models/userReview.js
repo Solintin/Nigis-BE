@@ -29,7 +29,7 @@ const userReviewSchema = mongoose.Schema(
 );
 
 
-idGenerator('user_review', userReviewSchema)
+// idGenerator('user_review', userReviewSchema)
 
 const review = mongoose.model("user_review", userReviewSchema);
 
