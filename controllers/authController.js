@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Tracker = require("../models/tracker");
 const customError = require("../errors");
 const crypto = require("crypto");
 const {
@@ -41,14 +42,19 @@ const Register = async (req, res) => {
   if (user) {
     throw new customError.BadRequestError("user already exists");
   }
-  const isFirstUser = (await User.countDocuments()) == 0;
-  const userRole = isFirstUser ? "admin" : "user";
-  req.body.role = userRole;
+  // const isFirstUser = (await User.countDocuments()) == 0;
+  // const userRole = isFirstUser ? "admin" : "user";
+  // req.body.role = userRole;
   // const verificationToken = crypto.randomBytes(40).toString("hex");
   // req.body.verificationToken = verificationToken;
   // req.body.verifiedExpiration = new Date(Date.now() + 1000 * 60 * 60 * 24);
 
   const newUser = await User.create(req.body);
+  //create tracker for new user
+  if (newUser.role == "user") {
+    await Tracker.create({ user: newUser._id });
+  }
+
   //Send Verification mail
   // sendVerificationMail({
   //   email: newUser.email,

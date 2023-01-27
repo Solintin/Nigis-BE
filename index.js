@@ -13,8 +13,7 @@ const MONGODB_URI = process.env.MONGO_URI;
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 const authRoute = require("./routes/authRoute");
-const productRoute = require("./routes/productRoute");
-const categoryRoute = require("./routes/categoryRoute");
+const requirement = require("./routes/requirement");
 
 const app = express();
 // Middlewares
@@ -36,8 +35,7 @@ app.use(helmet());
 
 // Routes
 app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/product", productRoute);
-app.use("/api/v1/category", categoryRoute);
+app.use("/api/v1/requirement", requirement);
 
 app.use(notFound);
 app.use(errorHandler);

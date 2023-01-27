@@ -23,7 +23,23 @@ const userSchema = mongoose.Schema(
       type: String,
       require: [true, "firstname is required"],
     },
-
+    stage: {
+      type: Number,
+      default: 0,
+    },
+    adminLevel: {
+      type: Number,
+    },
+    message: {
+      type: String,
+    },
+    approved: {
+      type: Boolean,
+      default: false,
+    },
+    numberAllocated: {
+      type: String,
+    },
     role: {
       type: String,
       required: ["Please provide a role"],

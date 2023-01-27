@@ -1,9 +1,3 @@
-
-
-
-
-
-
 const Product = require("../models/product");
 const { StatusCodes } = require("http-status-codes");
 const customError = require("../errors");
