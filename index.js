@@ -14,6 +14,7 @@ const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 const authRoute = require("./routes/authRoute");
 const requirement = require("./routes/requirement");
+const updateRequirement = require("./routes/update");
 
 const app = express();
 // Middlewares
@@ -36,6 +37,7 @@ app.use(helmet());
 // Routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/requirement", requirement);
+app.use("/api/v1/requirement", updateRequirement);
 
 app.use(notFound);
 app.use(errorHandler);

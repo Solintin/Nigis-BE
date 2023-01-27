@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  submitRequirement
-} = require("../controllers/requirementController");
+  updateTracker
+} = require("../controllers/updateController");
 
-router.post("/submit", submitRequirement);
+router.post("/update", updateTracker);
 
 
 module.exports = router;

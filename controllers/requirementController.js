@@ -2,6 +2,7 @@ const Requirements = require("../models/requirement");
 const { StatusCodes } = require("http-status-codes");
 const customError = require("../errors");
 const { response } = require("../services/response");
+const { log } = require("console");
 
 const submitRequirement = async (req, res) => {
   const {
@@ -89,8 +90,9 @@ const getAllSubmittedRequirement = async (req, res) => {
 //Get all submitted requirements by Id
 const getSingleSubmittedRequirement = async (req, res) => {
   const documentId = req.params.id;
-  const SubmittedRequirement = await Requirements.findOne({
-    id: documentId,
+  console.log(documentId);
+  const SubmittedRequirement = await Requirements.findById({
+    _id: documentId,
   });
   return response(
     res,

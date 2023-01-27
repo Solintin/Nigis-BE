@@ -6,10 +6,11 @@ const customError = require("../errors");
 const { response } = require("../services/response");
 
 const updateTracker = async (req, res) => {
+  console.log(req.body);
   const { userId, documentId, message, approve } = req.body;
-  const getUser = await User.findById({ id: userId });
-  const getRequirement = await Requirements.findById({ id: documentId });
-  const getUserTracker = await Tracker.findById({ id: documentId });
+  const getUser = await User.findById({ _id: userId });
+  const getRequirement = await Requirements.findById({ _id: documentId });
+  const getUserTracker = await Tracker.findOne({ user: userId });
 
   if (!getUser) {
     return res
@@ -21,12 +22,17 @@ const updateTracker = async (req, res) => {
       .status(StatusCodes.NOT_FOUND)
       .json({ message: "Document not found", success: false });
   }
+
+ 
+
   const randomNum = Math.floor(100000 + Math.random() * 900000);
 
   if (approve) {
-    getUserTracker.numberAllocated = randomNum;
+    if (getUserTracker.stage == 0) {
+      getUserTracker.numberAllocated = randomNum;
+    }
     getUserTracker.stage = getUserTracker.stage + 1;
-    getUserTracker.approve = approve
+    getUserTracker.approve = approve;
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
   } else {
