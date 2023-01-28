@@ -66,7 +66,7 @@ const submitRequirement = async (req, res) => {
 //Get all submitted requirements by Stage
 const getAllSubmittedRequirementByAdminLevel = async (req, res) => {
   const adminLevel = req.params.id;
-  const allSubmittedRequirement = await Requirements.findOne({
+  const allSubmittedRequirement = await Requirements.find({
     stage: adminLevel,
   });
   return response(
@@ -79,7 +79,7 @@ const getAllSubmittedRequirementByAdminLevel = async (req, res) => {
 
 //Get all submitted requirements
 const getAllSubmittedRequirement = async (req, res) => {
-  const allSubmittedRequirement = await Requirements.findOne({});
+  const allSubmittedRequirement = await Requirements.find({});
   return response(
     res,
     StatusCodes.OK,
