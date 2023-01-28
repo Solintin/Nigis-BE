@@ -33,12 +33,12 @@ const userSchema = mongoose.Schema(
     message: {
       type: String,
     },
-    approved: {
+    reject: {
       type: Boolean,
       default: false,
     },
     numberAllocated: {
-      type: String,
+      type: Number,
     },
     role: {
       type: String,

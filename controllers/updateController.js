@@ -6,7 +6,7 @@ const { response } = require("../services/response");
 
 const updateTracker = async (req, res) => {
   console.log(req.body);
-  const { userId, documentId, message, approve } = req.body;
+  const { userId, documentId, message, reject } = req.body;
   const getUser = await User.findById({ _id: userId });
   const getRequirement = await Requirements.findById({ _id: documentId });
   const getUserTracker = await Tracker.findOne({ user: userId });
@@ -22,20 +22,18 @@ const updateTracker = async (req, res) => {
       .json({ message: "Document not found", success: false });
   }
 
- 
-
   const randomNum = Math.floor(100000 + Math.random() * 900000);
 
-  if (approve) {
+  if (reject === "") {
     if (getUserTracker.stage == 0) {
       getUserTracker.numberAllocated = randomNum;
       getRequirement.numberAllocated = randomNum;
     }
     getUserTracker.stage = getUserTracker.stage + 1;
-    getUserTracker.approved = approve;
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
   } else {
+    getUserTracker.reject =  getUserTracker.stage;
     getUserTracker.message = message;
   }
   await getUser.save();
@@ -51,7 +49,7 @@ const updateTracker = async (req, res) => {
 const getUserTracker = async (req, res) => {
   const userId = req.params.id;
   const getUserTracker = await Tracker.findOne({
-  user: userId,
+    user: userId,
   });
   return response(
     res,
@@ -60,6 +58,5 @@ const getUserTracker = async (req, res) => {
     getUserTracker
   );
 };
-
 
 module.exports = { updateTracker, getUserTracker };

@@ -10,12 +10,12 @@ const trackerSchema = mongoose.Schema(
       type: String,
       default: "",
     },
-    approved: {
+    reject: {
       type: Boolean,
       default: false,
     },
     numberAllocated: {
-      type: String,
+      type: Number,
       default: "",
     },
     user: {
