@@ -1,5 +1,4 @@
-const User = require("../models/user");
-const Requirements = require("../models/requirement");
+
 const Tracker = require("../models/tracker");
 const { StatusCodes } = require("http-status-codes");
 const customError = require("../errors");
@@ -48,4 +47,18 @@ const updateTracker = async (req, res) => {
   });
 };
 
-module.exports = { updateTracker };
+const getUserTracker = async (req, res) => {
+  const userId = req.params.id;
+  const getUserTracker = await Tracker.findOne({
+  user: userId,
+  });
+  return response(
+    res,
+    StatusCodes.OK,
+    "Item retrieved successfully",
+    getUserTracker
+  );
+};
+
+
+module.exports = { updateTracker, getUserTracker };
