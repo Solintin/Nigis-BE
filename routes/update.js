@@ -7,6 +7,6 @@ const {
 } = require("../controllers/updateController");
 
 router.post("/update", updateTracker);
-router.post("/tracker/:id", getUserTracker);
+router.get("/tracker/:id", getUserTracker);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-
+const Requirements = require("../models/requirement");
 const Tracker = require("../models/tracker");
 const { StatusCodes } = require("http-status-codes");
 const customError = require("../errors");
@@ -29,6 +29,7 @@ const updateTracker = async (req, res) => {
   if (approve) {
     if (getUserTracker.stage == 0) {
       getUserTracker.numberAllocated = randomNum;
+      getRequirement.numberAllocated = randomNum;
     }
     getUserTracker.stage = getUserTracker.stage + 1;
     getUserTracker.approve = approve;

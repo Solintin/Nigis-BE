@@ -100,6 +100,9 @@ const requirementSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    numberAllocated: {
+      type: Number,
+    },
     user: {
       ref: "User",
       type: mongoose.Schema.Types.ObjectId,
