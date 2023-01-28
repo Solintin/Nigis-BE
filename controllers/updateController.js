@@ -32,7 +32,7 @@ const updateTracker = async (req, res) => {
       getRequirement.numberAllocated = randomNum;
     }
     getUserTracker.stage = getUserTracker.stage + 1;
-    getUserTracker.approve = approve;
+    getUserTracker.approved = approve;
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
   } else {
