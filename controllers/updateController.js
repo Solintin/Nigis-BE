@@ -1,3 +1,4 @@
+const User = require("../models/user");
 const Requirements = require("../models/requirement");
 const Tracker = require("../models/tracker");
 const { StatusCodes } = require("http-status-codes");
@@ -33,7 +34,7 @@ const updateTracker = async (req, res) => {
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
   } else {
-    getUserTracker.reject =  getUserTracker.stage;
+    getUserTracker.reject =  reject;
     getUserTracker.message = message;
   }
   await getUser.save();
