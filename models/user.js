@@ -34,8 +34,8 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     reject: {
-      type: Boolean,
-      default: false,
+      type: Number,
+      default: null,
     },
     numberAllocated: {
       type: Number,
