@@ -11,8 +11,8 @@ const trackerSchema = mongoose.Schema(
       default: "",
     },
     reject: {
-      type: Number,
-      default: null,
+      type: String,
+      default: "",
     },
     numberAllocated: {
       type: Number,
