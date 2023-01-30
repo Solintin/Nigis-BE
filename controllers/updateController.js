@@ -23,7 +23,8 @@ const updateTracker = async (req, res) => {
       .json({ message: "Document not found", success: false });
   }
 
-  const randomNum = `NG/MN/${Math.floor(100000 + Math.random() * 900000)}`;
+  // const randomNum = `NG/MN/${Math.floor(100000 + Math.random() * 900000)}`;
+  const randomNum = `NG/MN/000${User.countDocuments() + 1}`;
 
   if (reject === "") {
     if (getUserTracker.stage == 0) {
@@ -33,10 +34,10 @@ const updateTracker = async (req, res) => {
     getUserTracker.stage = getUserTracker.stage + 1;
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
-    getUserTracker.reject =  "";
+    getUserTracker.reject = "";
     getUserTracker.message = "";
   } else {
-    getUserTracker.reject =  getUserTracker.stage;
+    getUserTracker.reject = getUserTracker.stage;
     getUserTracker.message = message;
   }
   await getUser.save();
