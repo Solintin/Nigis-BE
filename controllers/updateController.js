@@ -33,8 +33,10 @@ const updateTracker = async (req, res) => {
     getUserTracker.stage = getUserTracker.stage + 1;
     getUser.stage = getUser.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
+    getUserTracker.reject =  "";
+    getUserTracker.message = "";
   } else {
-    getUserTracker.reject =  reject;
+    getUserTracker.reject =  getUserTracker.stage;
     getUserTracker.message = message;
   }
   await getUser.save();

@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
-const roles = ["admin", "user"];
-// const { idGenerator } = require("../utils");
+const roles = ["admin", "user", "super_admin"];
 
 const userSchema = mongoose.Schema(
   {
@@ -34,8 +33,8 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     reject: {
-      type: Number,
-      default: null,
+      type: String,
+      default: "",
     },
     numberAllocated: {
       type: Number,
@@ -50,7 +49,6 @@ const userSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-// idGenerator("user", userSchema);
 
 
 
