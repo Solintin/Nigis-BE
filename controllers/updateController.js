@@ -23,8 +23,8 @@ const updateTracker = async (req, res) => {
       .json({ message: "Document not found", success: false });
   }
 
-  // const randomNum = `NG/MN/${Math.floor(100000 + Math.random() * 900000)}`;
-  const randomNum = `NG/MN/000${User.countDocuments() + 1}`;
+  const randomNum = Math.floor(100000 + Math.random() * 900000);
+  // const randomNum = `NG/MN/000${User.countDocuments() + 1}`;
 
   if (reject === "") {
     if (getUserTracker.stage == 0) {
