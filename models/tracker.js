@@ -18,6 +18,10 @@ const trackerSchema = mongoose.Schema(
       type: Number,
       default: "",
     },
+    CofO: {
+      type: String,
+      default: "",
+    },
     user: {
       ref: "User",
       type: mongoose.Schema.Types.ObjectId,
