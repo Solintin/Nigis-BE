@@ -101,7 +101,7 @@ const requirementSchema = mongoose.Schema(
       default: 0,
     },
     numberAllocated: {
-      type: Number,
+      type: String,
     },
     user: {
       ref: "User",

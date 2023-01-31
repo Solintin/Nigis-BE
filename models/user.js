@@ -37,7 +37,7 @@ const userSchema = mongoose.Schema(
       default: "",
     },
     numberAllocated: {
-      type: Number,
+      type: String,
     },
     role: {
       type: String,

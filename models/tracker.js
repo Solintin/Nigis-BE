@@ -15,7 +15,7 @@ const trackerSchema = mongoose.Schema(
       default: "",
     },
     numberAllocated: {
-      type: Number,
+      type: String,
       default: "",
     },
     CofO: {
