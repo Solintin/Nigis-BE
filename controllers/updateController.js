@@ -33,7 +33,7 @@ const updateTracker = async (req, res) => {
     }
     const id = userId;
     const updatedStage = getUserTracker.stage + 1;
-    User.findByIdAndUpdate(id, { stage: updatedStage });
+    User.findByIdAndUpdate(id, { stage: updatedStage }, { new: true });
     getUserTracker.stage = getUserTracker.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
     getUserTracker.reject = "";
