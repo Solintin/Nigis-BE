@@ -31,7 +31,9 @@ const updateTracker = async (req, res) => {
       getUserTracker.numberAllocated = randomNum;
       getRequirement.numberAllocated = randomNum;
     }
-    User.findByIdAndUpdate(userId, { stage: getUserTracker.stage + 1 });
+    const id = userId;
+    const updatedStage = getUserTracker.stage + 1;
+    User.findByIdAndUpdate(id, { stage: updatedStage });
     getUserTracker.stage = getUserTracker.stage + 1;
     getRequirement.stage = getRequirement.stage + 1;
     getUserTracker.reject = "";
